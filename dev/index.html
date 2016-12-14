@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html ng-app="quoteBookApp">
+    <head>
+        <meta charset="utf-8">
+        <title>Angular Quotebook</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body ng-controller="mainCtrl">
+
+        <ul>
+            <input class="form-control" ng-model="quoteFilter" placeholder="Search Quote/Author">
+
+            <button type="button" ng-click="addItem('test')">Add quote</button>
+            <li ng-repeat="quote in dataArr | filter: quoteFilter">
+              <button type="button" ng-click="removeItem(quote.id)">Remove quote</button>
+
+              {{quote.text}} --{{quote.author}}
+
+            </li>
+        </ul>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.2/angular.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.18/angular-ui-router.js"></script>
+    </body>
+
+    <footer>
+        <script src="./app.js"></script>
+        <script src="./mainCtrl.js"></script>
+        <script src="./mainSvc.js"></script>
+    </footer>
+</html>
